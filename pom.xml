@@ -65,5 +65,16 @@
 			<artifactId>aspectjweaver</artifactId>
 			<version>1.9.1</version>
 		</dependency>
+
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.9.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.zto.titans</groupId>
+			<artifactId>titans-dubbo</artifactId>
+			<version>1.8.7</version>
+		</dependency>
 	</dependencies>
 </project>
