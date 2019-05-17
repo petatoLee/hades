@@ -22,11 +22,14 @@
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 	<task:annotation-driven />
-
-	<dubbo:application name="dubbo-hello"></dubbo:application>
+	<dubbo:application name="dubbo-hello-consumer"></dubbo:application>
 	<dubbo:protocol name="dubbo" port="-1" />
-	<dubbo:registry address="${static.dubboaddress}" />
+	<dubbo:registry
+		address="zookeeper://10.9.20.100:2181?backup=10.9.20.101:2181,10.9.20.65:2181" />
 	<dubbo:annotation />
-	<dubbo:service interface="com.zto.gateway.IRpcService"
-		ref="DispatcherService" group="InnerSortService" version="1.0" />
+	<dubbo:reference id="demoService"
+		interface="com.lee.dubbo.learn.SayHello" version="1.0"
+		group="helloService">
+	<!-- 	<dubbo:method name="sayHell" async="true" /> -->
+	</dubbo:reference>
 </beans>
